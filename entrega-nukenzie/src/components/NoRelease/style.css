@@ -1,0 +1,24 @@
+.no-releases {
+  width: 37vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.no-releases > h2 {
+  margin-bottom: 2rem;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .no-releases {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+
+  .no-releases > img {
+    width: 100%;
+  }
+}

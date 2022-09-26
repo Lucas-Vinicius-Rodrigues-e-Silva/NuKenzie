@@ -1,0 +1,106 @@
+.releases {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 20%;
+  background-color: var(--grey-scale-1);
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  animation: newRelease 1s;
+}
+
+.on-off {
+  width: 4px;
+  border-radius: 4px;
+}
+
+.description-and-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 60%;
+}
+
+.description-and-type > h3 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 30%;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.description-and-type > p {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50%;
+  width: 80%;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.value-and-delete {
+  display: flex;
+  justify-content: space-evenly;
+  width: 30%;
+}
+
+.value-and-delete > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--grey-scale-4);
+}
+
+.value-and-delete > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  width: 20%;
+  background-color: var(--grey-scale-1);
+  cursor: pointer;
+}
+
+.value-and-delete > div:hover {
+  color: var(--grey-scale-3);
+}
+
+@media (max-width: 1200px) {
+  .releases {
+    width: 90%;
+    margin-top: 1rem;
+  }
+
+  .description-and-type {
+    width: 50%;
+  }
+
+  .description-and-type > h3 {
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+@keyframes newRelease {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0%;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 100%;
+  }
+}

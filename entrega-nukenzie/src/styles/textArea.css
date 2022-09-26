@@ -1,0 +1,10 @@
+.text-releases {
+  background: var(--grey-scale-1);
+  border-radius: 4px;
+  color: var(--grey-scale-3);
+}
+
+.text-releases:hover {
+  background: var(--grey-scale-0);
+  border-radius: 4px;
+}

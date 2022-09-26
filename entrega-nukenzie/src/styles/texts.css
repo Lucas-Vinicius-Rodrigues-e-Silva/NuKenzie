@@ -1,0 +1,29 @@
+.tittle-1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.tittle-2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.tittle-3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tittle-4 {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.headline {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.body {
+  font-size: 12px;
+  font-weight: normal;
+}

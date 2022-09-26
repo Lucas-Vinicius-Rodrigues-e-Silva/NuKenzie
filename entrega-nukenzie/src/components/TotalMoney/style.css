@@ -1,0 +1,42 @@
+.total-money {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 25vw;
+  height: 12vh;
+  border: 1px solid var(--grey-scale-2);
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.total-money > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 70%;
+}
+
+.total-money > div > p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.total-money > div > span {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.total-money > span {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+@media (max-width: 1200px) {
+  .total-money {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+}

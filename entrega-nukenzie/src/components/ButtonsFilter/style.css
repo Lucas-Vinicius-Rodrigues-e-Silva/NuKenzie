@@ -1,0 +1,47 @@
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  height: 8vh;
+  width: 37vw;
+  margin-bottom: 1rem;
+}
+
+.buttons > h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.buttons > div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  height: 100%;
+}
+
+.buttons > div > button {
+  height: 55%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  gap: 10px;
+  background: var(--grey-scale-2);
+  border: 1.4px solid var(--grey-scale-2);
+  border-radius: 8px;
+  transition: 0.25s;
+  cursor: pointer;
+  color: var(--grey-scale-4);
+}
+
+.buttons > div > button:hover {
+  background: var(--grey-scale-3);
+  border-color: var(--grey-scale-3);
+  color: var(--grey-scale-1);
+}
+
+.buttons > div > button:active {
+  background: var(--color-primary-1);
+  border-color: var(--color-primary-1);
+  color: var(--grey-scale-1);
+}
