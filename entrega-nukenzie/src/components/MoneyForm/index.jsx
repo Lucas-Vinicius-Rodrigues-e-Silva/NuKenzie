@@ -1,132 +1,127 @@
-import { useState } from "react"
-import "./style.css"
-import React from 'react';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useState } from "react";
+import "./style.css";
+import React from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const MoneyForm = ({listTransactions,setListTransactions}) => {
+const MoneyForm = ({ listTransactions, setListTransactions }) => {
+  const [description, setDescription] = useState("");
+  const [value, setValue] = useState(0);
+  const [type, setType] = useState("");
 
-    const [description, setDescription] = useState("")
-    const [value, setValue]             = useState(0)
-    const [type, setType]               = useState("")
+  function receivedMoney(event) {
+    event.preventDefault();
 
-    function receivedMoney(event) {
+    if (type === "") {
+      toast.error("Insira um tipo de valor válido!", {
+        position: "top-center",
 
-        event.preventDefault()
+        autoClose: 3000,
 
-        if(type === "") {
+        hideProgressBar: false,
 
-            toast.error('Insira um tipo de valor válido!', {
+        closeOnClick: true,
 
-                position: "top-center",
+        pauseOnHover: true,
 
-                autoClose: 3000,
+        draggable: true,
 
-                hideProgressBar: false,
+        progress: undefined,
+      });
 
-                closeOnClick: true,
+      setDescription("");
 
-                pauseOnHover: true,
+      setValue("");
 
-                draggable: true,
+      setType("");
+    } else if (value <= 0) {
+      toast.error("Insira um valor maior que 0!", {
+        position: "top-center",
 
-                progress: undefined,
+        autoClose: 3000,
 
-                });
+        hideProgressBar: false,
 
-            setDescription("")
+        closeOnClick: true,
 
-            setValue("")
+        pauseOnHover: true,
 
-            setType("")
+        draggable: true,
 
-        } else if(value <= 0) {
+        progress: undefined,
+      });
 
-            toast.error('Insira um valor maior que 0!', {
+      setDescription("");
 
-                position: "top-center",
+      setValue("");
 
-                autoClose: 3000,
+      setType("");
+    } else {
+      setListTransactions([
+        ...listTransactions,
+        { description: description, type: type, value: value },
+      ]);
 
-                hideProgressBar: false,
+      setDescription("");
 
-                closeOnClick: true,
+      setValue("");
 
-                pauseOnHover: true,
-
-                draggable: true,
-
-                progress: undefined,
-
-                });
-
-            setDescription("")
-
-            setValue("")
-
-            setType("")
-
-        } else {
-
-            setListTransactions([...listTransactions, {description:description, type:type, value:value}])
-
-            setDescription("")
-
-            setValue("")
-
-            setType("")
-        }
-
+      setType("");
     }
+  }
 
-    return (
+  return (
+    <form onSubmit={receivedMoney} className="standart-form">
+      <div className="description-input">
+        <label htmlFor="description">Descrição</label>
 
-        <form onSubmit={receivedMoney} className = "standart-form">
+        <input
+          type="text"
+          required
+          placeholder="Digite aqui a sua descrição"
+          name="description"
+          value={description}
+          onChange={(event) => setDescription(event.target.value)}
+        />
 
-            <div className = "description-input">
+        <label htmlFor="description">Ex: Compra de roupas</label>
+      </div>
 
-                <label htmlFor="description">Descrição</label>
+      <div className="type-and-value">
+        <div className="value">
+          <label htmlFor="quantity">Valor</label>
 
-                <input type="text" required placeholder="Digite aqui a sua descrição" name="description" value = {description}  onChange={(event) => setDescription(event.target.value)} />
+          <input
+            type="number"
+            required
+            placeholder="R$"
+            name="quantity"
+            value={value}
+            onChange={(event) => setValue(event.target.value)}
+          />
+        </div>
 
-                <label htmlFor="description">Ex: Compra de roupas</label>
+        <div className="type">
+          <label htmlFor="in-out">Tipo de Valor</label>
 
-            </div>
+          <select
+            placeholder="Entrada"
+            name="in-out"
+            value={type}
+            onChange={(event) => setType(event.target.value)}
+          >
+            <option>--</option>
 
-            <div className = "type-and-value">
+            <option>Entrada</option>
 
-                <div className = "value">
+            <option>Saída</option>
+          </select>
+        </div>
+      </div>
 
-                <label htmlFor="quantity">Valor</label>
+      <button type="submit">Inserir Valor</button>
+    </form>
+  );
+};
 
-                <input type="number" required placeholder="R$" name="quantity"  value = {value} onChange={(event) => setValue(event.target.value)}/>
-
-                </div>
-
-                <div className="type">
-
-                <label htmlFor="in-out">Tipo de Valor</label>
-
-                <select placeholder="Entrada" name="in-out" value = {type} onChange={(event) => setType(event.target.value)}>
-
-                <option>--</option>
-
-                <option>Entrada</option>
-
-                <option>Saída</option>
-
-                </select>
-
-                </div>
-
-            </div>
-
-            <button type="submit">Inserir Valor</button>
-
-        </form>
-
-    )
-
-}
-
-export default MoneyForm
+export default MoneyForm;
